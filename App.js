@@ -12,6 +12,10 @@ const [weatherdata,setWeatherdata]=useState({});
 const [city,setCity]=useState("");
 
 async function addEventListener(){
+  if(city===""){
+    alert("Enter city name");
+    return;
+  }
   setLoading(false);
   GetWeatherData(city).then(data=>{
     setWeatherdata(data);
@@ -34,9 +38,9 @@ const {location,current,forecast}=weatherdata;
         <View style={{width:'80%'}}className="bg-white opacity-50 rounded-full mx-2 justify-center p-1.5 pl-2">
         <TextInput onChangeText={addCityHandler} placeholder='Search city'placeholderTextColor="#000000"/>
         </View>
-        <Pressable android_ripple='white' onPress={addEventListener}>
+        <Pressable android_ripple={{color:'white'}} onPress={addEventListener}>
         <View className='rounded-full w-10 h-10 bg-white justify-center items-center opacity-80'>
-        <Text className="text-2xl">&#128273;</Text>
+        <Text className="text-2xl">&#128270;</Text>
         </View>
         </Pressable>
         </View>
