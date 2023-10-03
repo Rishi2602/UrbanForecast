@@ -1,0 +1,29 @@
+{
+  "name": "urbanforecast",
+  "version": "1.0.0",
+  "main": "node_modules/expo/AppEntry.js",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web"
+  },
+  "dependencies": {
+    "@heroicons/react": "^2.0.18",
+    "axios": "^1.5.1",
+    "expo": "~49.0.13",
+    "expo-status-bar": "~1.6.0",
+    "find-yarn-workspace-root": "^2.0.0",
+    "nativewind": "^2.0.11",
+    "react": "18.2.0",
+    "react-native": "0.72.5",
+    "react-native-heroicons": "^3.2.0",
+    "react-native-progress": "^5.0.0",
+    "react-native-svg": "13.9.0",
+    "tailwindcss": "^3.3.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.0"
+  },
+  "private": true
+}
