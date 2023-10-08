@@ -4,6 +4,8 @@ import { StyleSheet, Text, View,Image, TextInput,Button,ScrollView, FlatList, Pr
 import {GetWeatherData} from './api/Api';
 import { weatherImages } from './constants/Variable';
 import * as Progress from 'react-native-progress';
+import { TempDetails } from './components/TempDetails';
+import { ForecastDetail } from './components/ForecastDetail';
 
 
 export default function App() {
@@ -21,7 +23,6 @@ async function addEventListener(){
     setWeatherdata(data);
     setLoading(true);
   })
-
 }
 
 function addCityHandler(city){
@@ -64,22 +65,7 @@ const {location,current,forecast}=weatherdata;
                     </Text>
                   </View>
 
-                <View className="flex-row justify-around mx-4 pt-6">
-                  <View className="flex-row space-x-2 items-center">
-                    <Image source={require('./assets/icons/wind.png')} className="w-6 h-6" />
-                    <Text className="text-white font-semibold text-base">{current?.wind_kph}km</Text>
-                  </View>
-                  <View className="flex-row space-x-2 items-center">
-                    <Image source={require('./assets/icons/drop.png')} className="w-6 h-6" />
-                    <Text className="text-white font-semibold text-base">{current?.humidity}%</Text>
-                  </View>
-                  <View className="flex-row space-x-2 items-center">
-                    <Image source={require('./assets/icons/sun.png')} className="w-6 h-6" />
-                    <Text className="text-white font-semibold text-base">
-                    {forecast?.forecastday[0]?.astro?.sunrise }
-                    </Text>
-                  </View>
-                </View>
+                <TempDetails current={current} forecast={forecast} />
 
 
                 <View className="justify-center items-start pl-5 mt-5">
@@ -94,19 +80,7 @@ const {location,current,forecast}=weatherdata;
                         let dayName = date.toLocaleDateString('en-US', options);
                         dayName = dayName.split(',')[0];
                         return(
-                          <View  
-                          className="flex justify-center items-center w-24 rounded-3xl py-3 space-y-1 m-4" 
-                          style={{backgroundColor: '#4F4F4F'}}
-                          key={index}
-                       >
-                          <Image
-                            source={weatherImages[item?.day?.condition?.text || 'other']}
-                              className="w-11 h-11" />
-                          <Text className="text-white">{dayName}</Text>
-                          <Text className="text-white text-xl font-semibold">
-                          {item?.day?.avgtemp_c}&#176;
-                          </Text>
-                        </View>
+                          <ForecastDetail key={index} item={item} dayName={dayName} />
                         );
                     })}
                       </ScrollView>

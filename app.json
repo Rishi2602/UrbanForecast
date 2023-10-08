@@ -9,7 +9,7 @@
     "splash": {
       "image": "./assets/images/partlycloudy.png",
       "resizeMode": "contain",
-      "backgroundColor": "black"
+      "backgroundColor": "#ffffff"
     },
     "assetBundlePatterns": [
       "**/*"
@@ -20,11 +20,17 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/partlycloudy.png",
-        "backgroundColor": "black"
-      }
+        "backgroundColor": "#FFFFFF"
+      },
+      "package": "com.rishi2602.UrbanForecast"
     },
     "web": {
       "favicon": "./assets/images/partlycloudy.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "4671d418-63ee-486c-84ed-623ef54afce5"
+      }
     }
   }
 }
